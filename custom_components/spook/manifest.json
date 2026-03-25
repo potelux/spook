@@ -8,6 +8,7 @@
     "homeassistant",
     "input_number",
     "input_select",
+    "input_text",
     "lovelace",
     "number",
     "person",

@@ -856,6 +856,90 @@ input_select_sort:
     entity:
       domain: input_select
 
+input_text_create:
+  name: Create an input text 👻
+  description: >-
+    Create a new input text helper on the fly.
+  fields:
+    name:
+      name: Name
+      description: The name of the new input text helper.
+      required: true
+      selector:
+        text:
+    object_id:
+      name: Object ID
+      description: >-
+        The object ID for the new input text helper. If not provided, the
+        object ID will be generated based on the name.
+      required: false
+      selector:
+        text:
+    min:
+      name: Minimum length
+      description: The minimum length of the input text value.
+      required: false
+      default: 0
+      selector:
+        number:
+          min: 0
+          max: 255
+          mode: box
+    max:
+      name: Maximum length
+      description: The maximum length of the input text value.
+      required: false
+      default: 100
+      selector:
+        number:
+          min: 1
+          max: 255
+          mode: box
+    initial:
+      name: Initial value
+      description: The initial value of the input text when Home Assistant starts.
+      required: false
+      selector:
+        text:
+    mode:
+      name: Display mode
+      description: >-
+        The display mode of the input text, which can be either a text field
+        or a password field.
+      required: false
+      default: text
+      selector:
+        select:
+          options:
+            - label: Text
+              value: text
+            - label: Password
+              value: password
+    icon:
+      name: Icon
+      description: The icon to use for the input text helper.
+      required: false
+      selector:
+        icon:
+    pattern:
+      name: Regex pattern
+      description: >-
+        A regex pattern that the value must match. If not provided, any value
+        is accepted.
+      required: false
+      selector:
+        text:
+
+input_text_delete:
+  name: Delete an input text 👻
+  description: >-
+    Delete an input text helper. This works only with input texts created
+    and managed via the UI. Input texts created and managed in YAML cannot
+    be managed by Spook.
+  target:
+    entity:
+      domain: input_text
+
 number_decrement:
   name: Decrease value 👻
   description: >-
